@@ -23,6 +23,7 @@ import {
   useApplicationResources,
   useRadiusApplications,
 } from '../models/radius';
+import ApplicationGraph from './ApplicationGraph';
 
 interface RouteParams {
   applicationName: string;
@@ -236,6 +237,8 @@ function ApplicationContent({
           </SectionBox>
         </Grid>
       </Grid>
+
+      <ApplicationGraph applicationId={application.id} resources={resources} />
 
       <SectionBox title={`Resources (${resources?.length || 0})`}>
         {resourcesLoading && (

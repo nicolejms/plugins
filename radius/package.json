@@ -13,6 +13,7 @@
     "storybook": "headlamp-plugin storybook",
     "storybook-build": "headlamp-plugin storybook-build",
     "test": "headlamp-plugin test",
+    "test:headlamp": "node tests/headlamp/qualify.mjs",
     "i18n": "headlamp-plugin i18n"
   },
   "keywords": [
@@ -24,6 +25,12 @@
     "plugins"
   ],
   "prettier": "@headlamp-k8s/eslint-config/prettier-config",
+  "headlamp": {
+    "extraDist": {
+      "RADIUS-LICENSE.txt": "node_modules/@radius-project/graph-react/dist/LICENSE",
+      "RADIUS-THIRD-PARTY-NOTICES.txt": "node_modules/@radius-project/graph-react/dist/THIRD_PARTY_NOTICES.txt"
+    }
+  },
   "eslintConfig": {
     "extends": [
       "@headlamp-k8s",
@@ -32,11 +39,17 @@
     ]
   },
   "overrides": {
+    "@radius-project/core": "$@radius-project/core",
     "typescript": "5.6.2",
     "ws": "8.21.0",
     "vitest": "^3.2.6"
   },
   "devDependencies": {
+    "@playwright/test": "1.64.1",
     "@kinvolk/headlamp-plugin": "^0.14.0"
+  },
+  "dependencies": {
+    "@radius-project/core": "file:vendor/radius-project-core-0.1.0.tgz",
+    "@radius-project/graph-react": "file:vendor/radius-project-graph-react-0.1.0.tgz"
   }
 }

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import '@radius-project/graph-react/styles.css';
 import { addIcon } from '@iconify/react';
 import {
   registerPluginSettings,
